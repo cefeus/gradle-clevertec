@@ -2,4 +2,5 @@ rootProject.name = 'gradle-clevertec'
 include 'jarcreator'
 include 'utiljar'
 include 'core'
+include 'api'
 
