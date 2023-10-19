@@ -2,6 +2,7 @@ plugins {
     id 'java'
 }
 
+
 group = 'org.clevertec'
 version = '1.0-SNAPSHOT'
 
@@ -13,6 +14,21 @@ dependencies {
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
+
+class MoveJarPlugin implements Plugin<Project> {
+    void apply(Project project) {
+        project.tasks.register('moveJar', Copy) {
+            dependsOn ':utiljar:jar'
+            doLast {
+                from 'utiljar/build/libs'
+                into 'core/libs'
+            println 'Hello from the GreetingPlugin'
+            }
+        }
+    }
+}
+
+apply plugin: MoveJarPlugin
 
 test {
     useJUnitPlatform()
