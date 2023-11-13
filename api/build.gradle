@@ -3,10 +3,19 @@ plugins {
 }
 
 group = 'org.clevertec'
-version = '1.0-SNAPSHOT'
+version = '1.3.5'
 
 repositories {
     mavenCentral()
+}
+
+jar {
+    archiveBaseName = 'api'
+    archiveVersion = version
+
+    manifest {
+        attributes 'Main-Class': 'App'
+    }
 }
 
 dependencies {
